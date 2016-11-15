@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.bancoABC.com.co/ConsultarSaldoBancoABC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsultarSaldoBancoABC" targetNamespace="http://www.bancoABC.com.co/ConsultarSaldoBancoABC/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.bancoABC.com.co/ConsultarSaldoBancoABC/">
+      <xsd:element name="ConsultarSaldo">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="tipoID" type="xsd:string" />
+          	<xsd:element name="numID" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarSaldoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="saldo" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarSaldoRequest">
+    <wsdl:part element="tns:ConsultarSaldo" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultarSaldoResponse">
+    <wsdl:part element="tns:ConsultarSaldoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultarSaldoBancoABC">
+    <wsdl:operation name="ConsultarSaldo">
+      <wsdl:input message="tns:ConsultarSaldoRequest"/>
+      <wsdl:output message="tns:ConsultarSaldoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultarSaldoBancoABCSOAP" type="tns:ConsultarSaldoBancoABC">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarSaldo">
+      <soap:operation soapAction="http://www.bancoABC.com.co/ConsultarSaldoBancoABC/ConsultarSaldo"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultarSaldoBancoABC">
+    <wsdl:port binding="tns:ConsultarSaldoBancoABCSOAP" name="ConsultarSaldoBancoABCSOAP">
+      <soap:address location="http://www.bancoABC.com.co/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
