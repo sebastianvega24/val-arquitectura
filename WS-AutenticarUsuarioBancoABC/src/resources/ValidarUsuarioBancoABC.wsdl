@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.bancoABC.com.co/ValidarUsuarioBancoABC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ValidarUsuarioBancoABC" targetNamespace="http://www.bancoABC.com.co/ValidarUsuarioBancoABC/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.bancoABC.com.co/ValidarUsuarioBancoABC/">
+      <xsd:element name="ValidarUsuario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarUsuarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidarUsuarioRequest">
+    <wsdl:part element="tns:ValidarUsuario" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioResponse">
+    <wsdl:part element="tns:ValidarUsuarioResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ValidarUsuarioBancoABC">
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input message="tns:ValidarUsuarioRequest"/>
+      <wsdl:output message="tns:ValidarUsuarioResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidarUsuarioBancoABCSOAP" type="tns:ValidarUsuarioBancoABC">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://www.bancoABC.com.co/ValidarUsuarioBancoABC/ValidarUsuario"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidarUsuarioBancoABC">
+    <wsdl:port binding="tns:ValidarUsuarioBancoABCSOAP" name="ValidarUsuarioBancoABCSOAP">
+      <soap:address location="http://www.bancoABC.com.co/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
