@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.bancoABC.com.co/GestionarConveniosBancoABC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionarConveniosBancoABC" targetNamespace="http://www.bancoABC.com.co/GestionarConveniosBancoABC/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.bancoABC.com.co/GestionarConveniosBancoABC/">
+      <xsd:element name="AgregarConvenio">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="nomConvenio" type="xsd:string" />
+          	<xsd:element name="descConvenio" type="xsd:string"></xsd:element>
+          	<xsd:element name="endPointConvenio" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AgregarConvenioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rta" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarConvenios">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idUsuario" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarConveniosResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="listaServicios" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminarConvenio">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="nomConvenio" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminarConvenioResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="rta" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AgregarConvenioRequest">
+    <wsdl:part element="tns:AgregarConvenio" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AgregarConvenioResponse">
+    <wsdl:part element="tns:AgregarConvenioResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultarConveniosRequest">
+  	<wsdl:part name="parameters" element="tns:ConsultarConvenios"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConsultarConveniosResponse">
+  	<wsdl:part name="parameters" element="tns:ConsultarConveniosResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EliminarConvenioRequest">
+  	<wsdl:part name="parameters" element="tns:EliminarConvenio"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EliminarConvenioResponse">
+  	<wsdl:part name="parameters" element="tns:EliminarConvenioResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GestionarConveniosBancoABC">
+    <wsdl:operation name="AgregarConvenio">
+      <wsdl:input message="tns:AgregarConvenioRequest"/>
+      <wsdl:output message="tns:AgregarConvenioResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarConvenios">
+    	<wsdl:input message="tns:ConsultarConveniosRequest"></wsdl:input>
+    	<wsdl:output message="tns:ConsultarConveniosResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarConvenio">
+    	<wsdl:input message="tns:EliminarConvenioRequest"></wsdl:input>
+    	<wsdl:output message="tns:EliminarConvenioResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionarConveniosBancoABCSOAP"
+  	type="tns:GestionarConveniosBancoABC">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="AgregarConvenio">
+  		<soap:operation
+  			soapAction="http://www.bancoABC.com.co/GestionarConveniosBancoABC/AgregarConvenio" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ConsultarConvenios">
+  		<soap:operation
+  			soapAction="http://www.bancoABC.com.co/GestionarConveniosBancoABC/ConsultarConvenios" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="EliminarConvenio">
+  		<soap:operation
+  			soapAction="http://www.bancoABC.com.co/GestionarConveniosBancoABC/EliminarConvenio" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionarConveniosBancoABC">
+    <wsdl:port binding="tns:GestionarConveniosBancoABCSOAP" name="GestionarConveniosBancoABCSOAP">
+      <soap:address location="http://www.bancoABC.com.co/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
