@@ -18,10 +18,11 @@ public class ValidarUsuarioBancoABC_ValidarUsuarioBancoABCSOAPImpl implements Va
 
 	/**
 	 * 
-	 * @param in
+	 * @param usuario
+	 * @param contrasena
 	 * @return returns boolean
 	 */
-	public boolean validarUsuario(String in) {
+	public boolean validarUsuario(String usuario, String contrasena) {
 		// replace with your impl here
 		return true;
 	}

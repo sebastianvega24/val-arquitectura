@@ -5,7 +5,8 @@
       <xsd:element name="ValidarUsuario">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="in" type="xsd:string"/>
+          	<xsd:element name="usuario" type="xsd:string" />
+          	<xsd:element name="contrasena" type="xsd:string"></xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

@@ -26,7 +26,8 @@ public class NotificarClientesBancoABC_NotificarClientesBancoABCSOAPImpl impleme
 	 */
 	public boolean notificarClientes(String tipoID, String numID, String tipoNotificacion,
 			String direccionNotificacion) {
-		// replace with your impl here
+		System.out.println("Servicio notificar clientes");
+		System.out.println(tipoID + " " + numID + " " + tipoNotificacion + " " + direccionNotificacion);
 		return true;
 	}
 
