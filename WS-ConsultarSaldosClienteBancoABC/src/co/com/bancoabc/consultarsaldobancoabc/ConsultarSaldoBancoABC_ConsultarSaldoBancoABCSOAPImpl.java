@@ -23,8 +23,7 @@ public class ConsultarSaldoBancoABC_ConsultarSaldoBancoABCSOAPImpl implements Co
 	 * @return returns double
 	 */
 	public double consultarSaldo(String tipoID, String numID) {
-		// replace with your impl here
-		return 10000;
+		return Math.floor(Math.random() * 2000000);
 	}
 
 }
